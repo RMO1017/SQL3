@@ -17,8 +17,8 @@ where amount >= 6.99
 SELECT customer_id
 FROM payment
 GROUP BY customer_id
-HAVING SUM(amount) > 175
-ORDER BY SUM(amount) DESC;
+    (HAVING SUM(amount) > 175
+    ORDER BY SUM(amount) DESC);
 
 
 --4. List all customers that live in Nepal (use the city table)
@@ -38,9 +38,9 @@ select count(rating), rating from film
 group by rating
 
 --7.Show all customers who have made a single payment above $6.99 (Use Subqueries)
-select count(distinct customer_id)
-from payment 
-where amount >= 6.99
+select customer_id
+  (count(distinct customer_id) where amount >= 6.99)
+from payment;
 
 --8. How many free rentals did our stores give away? 24
 select * from payment
